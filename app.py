@@ -28,7 +28,7 @@ def success():
     results = qry.all()
     for result in results:
         resultString += str(result.id) + " | "+ str(result.name) + " | " + str(result.quantity) + " | "+ str(result.description) + " | "+ str(result.date_added) + "<br/><br/>"
-        print(str(result.id) + " | "+ str(result.name) + " | " + str(result.quantity) + " | "+ str(result.description) + " | "+ str(result.date_added) + "\n")
+        #print(str(result.id) + " | "+ str(result.name) + " | " + str(result.quantity) + " | "+ str(result.description) + " | "+ str(result.date_added) + "\n")
     
     return resultString[:-10] + "  <= **This is the item your just submitted**"
   
