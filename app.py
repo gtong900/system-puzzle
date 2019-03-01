@@ -22,12 +22,17 @@ def add_item():
 @app.route("/success")
 def success():
     results = []
- 
+    resultString = "<strong>Success! You have added the item to the database.</strong><br/><br/>"
+    resultString += "(ID, NAME, QUANTITY, DESCRIPTION, DATE_ADDED)<br/><br/>"
     qry = db_session.query(Items)
     results = qry.all()
-
-    return str(results)
+    for result in results:
+        resultString += str(result.id) + " | "+ str(result.name) + " | " + str(result.quantity) + " | "+ str(result.description) + " | "+ str(result.date_added) + "<br/><br/>"
+        print(str(result.id) + " | "+ str(result.name) + " | " + str(result.quantity) + " | "+ str(result.description) + " | "+ str(result.date_added) + "\n")
+    
+    return resultString[:-10] + "  <= **This is the item your just submitted**"
   
 
 if __name__ == '__main__':
+    app.debug = True
     app.run(host='0.0.0.0')
